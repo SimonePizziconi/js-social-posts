@@ -57,6 +57,8 @@ const posts = [
     }
 ];
 
+const likeId = [];
+
 // Prendi l'elemento container da HTML
 const container = document.getElementById("container");
 
@@ -117,8 +119,16 @@ posts.forEach((element) => {
         // Aumentiamo il contatore dei "Mi Piace"
         element.likes++;
         likesCounter.innerText = element.likes;
-    });
+
+        // Inseriamo nell'array l'ID dei mi piace
+        likeId.push(element.id);
+        console.log(likeId);
+        });
 });
+
+
+
+
 
 
 
