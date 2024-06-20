@@ -87,7 +87,7 @@ posts.forEach((element) => {
                         </a>
                     </div>
                     <div class="likes__counter">
-                        Piace a <b id="like-counter-${element.id}" class="js-likes-counter">${element.likes}c</b> persone
+                        Piace a <b id="like-counter-${element.id}" class="js-likes-counter">${element.likes}</b> persone
                     </div>
                 </div> 
             </div>            
@@ -103,16 +103,20 @@ posts.forEach((element) => {
     const likeButton = document.getElementById(`${element.id}`);
     console.log(likeButton);
 
+    // Aumentiamo il contatore dei "Mi Piace"
+    let likesCounter = document.getElementById(`like-counter-${element.id}`);
+    console.log(likesCounter);
+
     // Creiamo l'evento al clic del bottone "Mi Piace"
     likeButton.addEventListener("click", 
-    function(){
-    
-    // Aggiungiamo la classe per cambiare colore al testo del bottone
-    likeButton.classList.toggle("like-button--liked");
+    function(event){
+        event.preventDefault();
+        // Aggiungiamo la classe per cambiare colore al testo del bottone
+        likeButton.classList.toggle("like-button--liked");
 
-    // Aumentiamo il contatore dei "Mi Piace"
-    const likesCounter 
-
+        // Aumentiamo il contatore dei "Mi Piace"
+        element.likes++;
+        likesCounter.innerText = element.likes;
     });
 });
 
