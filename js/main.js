@@ -1,3 +1,4 @@
+// Crea un Array di Posts
 const posts = [
     {
         "id": 1,
@@ -59,7 +60,7 @@ const posts = [
 // Prendi l'elemento container da HTML
 const container = document.getElementById("container");
 
-// Crea un ciclo per prendere tutti gli ogetti e trasformarli in codice HTML
+// Crea un ciclo per prendere tutti gli oggetti e trasformarli in codice HTML
 posts.forEach((element) => {
     let itempost = `<div class="post">
             <div class="post__header">
@@ -80,17 +81,42 @@ posts.forEach((element) => {
             <div class="post__footer">
                 <div class="likes js-likes">
                     <div class="likes__cta">
-                        <a class="like-button  js-like-button" href="#" data-postid="1">
+                        <a class="like-button  js-like-button" href="#" data-post id="${element.id}">
                             <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                             <span class="like-button__label">Mi Piace</span>
                         </a>
                     </div>
                     <div class="likes__counter">
-                        Piace a <b id="like-counter-1" class="js-likes-counter">${element.likes}</b> persone
+                        Piace a <b id="like-counter-${element.id}" class="js-likes-counter">${element.likes}c</b> persone
                     </div>
                 </div> 
             </div>            
         </div>`;
 
+        // Inseriamo il codice HTML nel container
         container.innerHTML += itempost;
 });
+
+
+posts.forEach((element) => {
+    // Prendiamo il bottone "Mi Piace" in HTML
+    const likeButton = document.getElementById(`${element.id}`);
+    console.log(likeButton);
+
+    // Creiamo l'evento al clic del bottone "Mi Piace"
+    likeButton.addEventListener("click", 
+    function(){
+    
+    // Aggiungiamo la classe per cambiare colore al testo del bottone
+    likeButton.classList.toggle("like-button--liked");
+
+    // Aumentiamo il contatore dei "Mi Piace"
+    const likesCounter 
+
+    });
+});
+
+
+
+
+
