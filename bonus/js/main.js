@@ -62,17 +62,13 @@ const likeId = [];
 // Prendi l'elemento container da HTML
 const container = document.getElementById("container");
 
-// Crea un ciclo per prendere tutti gli oggetti e trasformarli in codice HTML
+// Crea un ciclo per:
 posts.forEach((element) => {
     
-    const formattedDate = new Date(element.created).toLocaleDateString('it-IT', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
+    // Formattazione Data 
+    let formattedDate = new Date(element.created).toLocaleDateString("it-IT");
 
-    console.log(formattedDate);
-
+    // prendere tutti gli oggetti e trasformarli in codice HTML
     let itempost = `<div class="post">
             <div class="post__header">
                 <div class="post-meta">                    
