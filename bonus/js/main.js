@@ -64,6 +64,15 @@ const container = document.getElementById("container");
 
 // Crea un ciclo per prendere tutti gli oggetti e trasformarli in codice HTML
 posts.forEach((element) => {
+    
+    const formattedDate = new Date(element.created).toLocaleDateString('it-IT', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+
+    console.log(formattedDate);
+
     let itempost = `<div class="post">
             <div class="post__header">
                 <div class="post-meta">                    
@@ -72,7 +81,7 @@ posts.forEach((element) => {
                     </div>
                     <div class="post-meta__data">
                         <div class="post-meta__author">${element.author.name}</div>
-                        <div class="post-meta__time">${element.created}</div>
+                        <div class="post-meta__time">${formattedDate}</div>
                     </div>                    
                 </div>
             </div>
@@ -136,6 +145,8 @@ posts.forEach((element) => {
         
         });
 });
+
+
 
 
 
